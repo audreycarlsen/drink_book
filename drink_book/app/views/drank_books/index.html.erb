@@ -1,0 +1,29 @@
+<h1>Listing drank_books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drank_books.each do |drank_book| %>
+      <tr>
+        <td><%= drank_book.name %></td>
+        <td><%= drank_book.description %></td>
+        <td><%= link_to 'Show', drank_book %></td>
+        <td><%= link_to 'Edit', edit_drank_book_path(drank_book) %></td>
+        <td><%= link_to 'Destroy', drank_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drank book', new_drank_book_path %>

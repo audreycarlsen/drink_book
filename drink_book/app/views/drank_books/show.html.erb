@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @drank_book.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @drank_book.description %>
+</p>
+
+<%= link_to 'Edit', edit_drank_book_path(@drank_book) %> |
+<%= link_to 'Back', drank_books_path %>

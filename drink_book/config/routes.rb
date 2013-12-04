@@ -1,4 +1,6 @@
 DrinkBook::Application.routes.draw do
+  resources :drank_books
+
   resources :recipes
   #get '/recipes' => 'recipes#index'
 
