@@ -1,4 +1,6 @@
 DrinkBook::Application.routes.draw do
+  resources :recipes
+
   resources :tools
 
   resources :ingredients
