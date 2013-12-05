@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @ingredients = Ingredient.all.collect { |p| [p.name, p.id] }
+    @drankbooks = DrankBook.all.collect { |p| [p.name, p.id] }
   end
 
   # GET /recipes/1/edit
@@ -32,6 +33,8 @@ class RecipesController < ApplicationController
       ingredient = Ingredient.find(ingredient_id.to_i)
       @recipe.ingredients << ingredient
     end
+
+    @recipe.drank_book = DrankBook.find(params[:recipe][:drank_book].to_i)
 
     respond_to do |format|
       if @recipe.save

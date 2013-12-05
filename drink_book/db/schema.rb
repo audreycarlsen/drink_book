@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131204220850) do
     t.datetime "updated_at"
     t.text     "description"
     t.text     "process"
-    t.integer  "drankbook_id"
+    t.integer  "drank_book_id"
   end
 
   create_table "tools", force: true do |t|

@@ -6,7 +6,7 @@
 </p>
 <p>
 <strong>Drankbook:</strong>
-  <%= @recipe.drankbook_id %>
+  <%= @recipe.drank_book.name %>
 </p>
 <p>
   <strong>Description:</strong>
@@ -17,8 +17,10 @@
   <%= @recipe.process %>
 </p>
 <p>
-<strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
+<strong>Ingredients:</strong><br>
+  <% @recipe.ingredients.each do |ingredient| %>
+    - <%= ingredient.name %><br>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |

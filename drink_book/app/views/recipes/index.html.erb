@@ -18,10 +18,14 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.drankbook_id %></td>
+        <td><%= recipe.drank_book.name %></td>
         <td><%= recipe.description %></td>
         <td><%= recipe.process %></td>
-        <td><%= recipe.ingredients.inspect %></td>
+        <td>
+          <% recipe.ingredients.each do |ingredient| %>
+            <%= ingredient.name %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
