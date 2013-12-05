@@ -49,6 +49,11 @@ class DrankBooksController < ApplicationController
   def update
     respond_to do |format|
       if @drank_book.update(drank_book_params)
+        params[:drank_book][:recipes].each do |recipe_id|
+          next if recipe_id.to_i == 0
+          @drank_book.recipes << Recipe.find(recipe_id.to_i)
+        end
+
         format.html { redirect_to @drank_book, notice: 'Drank book was successfully updated.' }
         format.json { head :no_content }
       else

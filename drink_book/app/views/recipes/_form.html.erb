@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :drank_books %><br>
-    <%= f.select(:drank_books, @drankbooks, {}, {:multiple => true}) %>
+    <%= f.select(:drank_books, @drankbooks, {selected: @recipe.drank_books.collect{ |i| i.id } }, {:multiple => true}) %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :ingredients %><br>
-    <%= f.select(:ingredients, @ingredients, {}, {:multiple => true}) %>
+    <%= f.select(:ingredients, @ingredients, { selected: @recipe.ingredients.collect{ |i| i.id } }, {:multiple => true}) %>
   </div>
   <div class="actions">
     <%= f.submit{"Recipe"} %>

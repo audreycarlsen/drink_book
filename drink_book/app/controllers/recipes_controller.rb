@@ -56,6 +56,16 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
+        params[:recipe][:ingredients].each do |ingredient_id|
+          next if ingredient_id.to_i == 0
+          @recipe.ingredients << Ingredient.find(ingredient_id.to_i)
+        end
+
+        params[:recipe][:drank_books].each do |drankbook_id|
+          next if drankbook_id.to_i == 0
+          @recipe.drank_books << DrankBook.find(drankbook_id.to_i)
+        end
+
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { head :no_content }
       else
@@ -83,6 +93,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :process, :drank_book_id, :ingredients => {})
+      params.require(:recipe).permit(:name, :description, :process, :drank_books => {}, :ingredients => {})
     end
 end
