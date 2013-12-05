@@ -20,6 +20,7 @@ class DrankBooksController < ApplicationController
 
   # GET /drank_books/1/edit
   def edit
+    @recipes = Recipe.all.collect { |p| [p.name, p.id] }
   end
 
   # POST /drank_books

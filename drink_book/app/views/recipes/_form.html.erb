@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :drankbooks %><br>
+    <%= f.label :drank_books %><br>
     <%= f.select(:drank_books, @drankbooks, {}, {:multiple => true}) %>
   </div>
   <div class="field">
@@ -32,6 +32,6 @@
     <%= f.select(:ingredients, @ingredients, {}, {:multiple => true}) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit{"Recipe"} %>
   </div>
 <% end %>
