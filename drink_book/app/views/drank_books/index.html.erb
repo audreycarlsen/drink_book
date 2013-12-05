@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Recipes</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,11 @@
       <tr>
         <td><%= drank_book.name %></td>
         <td><%= drank_book.description %></td>
+        <td>
+          <% drank_book.recipes.each do |recipe| %>
+            <%= recipe.name %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', drank_book %></td>
         <td><%= link_to 'Edit', edit_drank_book_path(drank_book) %></td>
         <td><%= link_to 'Destroy', drank_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

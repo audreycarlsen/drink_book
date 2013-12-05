@@ -10,5 +10,12 @@
   <%= @drank_book.description %>
 </p>
 
+<p>
+  <strong>Recipes:</strong><br>
+  <% @drank_book.recipes.each do |recipe| %>
+    - <%= recipe.name %><br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_drank_book_path(@drank_book) %> |
 <%= link_to 'Back', drank_books_path %>

@@ -15,6 +15,7 @@ class DrankBooksController < ApplicationController
   # GET /drank_books/new
   def new
     @drank_book = DrankBook.new
+    @recipes = Recipe.all.collect { |p| [p.name, p.id] }
   end
 
   # GET /drank_books/1/edit
@@ -25,6 +26,11 @@ class DrankBooksController < ApplicationController
   # POST /drank_books.json
   def create
     @drank_book = DrankBook.new(drank_book_params)
+
+    params[:drank_book][:recipes].each do |recipe_id|
+      next if recipe_id.to_i == 0
+      @drank_book.recipes << Recipe.find(recipe_id.to_i)
+    end
 
     respond_to do |format|
       if @drank_book.save
@@ -69,6 +75,6 @@ class DrankBooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drank_book_params
-      params.require(:drank_book).permit(:name, :description)
+      params.require(:drank_book).permit(:name, :description, :recipes => {})
     end
 end

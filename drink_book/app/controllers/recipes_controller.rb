@@ -30,8 +30,7 @@ class RecipesController < ApplicationController
 
     params[:recipe][:ingredients].each do |ingredient_id|
       next if ingredient_id.to_i == 0
-      ingredient = Ingredient.find(ingredient_id.to_i)
-      @recipe.ingredients << ingredient
+      @recipe.ingredients << Ingredient.find(ingredient_id.to_i)
     end
 
     @recipe.drank_book = DrankBook.find(params[:recipe][:drank_book].to_i)
@@ -79,6 +78,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :process, :drankbook_id, :ingredients => {})
+      params.require(:recipe).permit(:name, :description, :process, :drank_book_id, :ingredients => {})
     end
 end
