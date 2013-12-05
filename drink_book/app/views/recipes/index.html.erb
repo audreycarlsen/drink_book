@@ -8,6 +8,7 @@
       <th>Descriptions</th>
       <th>Process</th>
       <th>Ingredients</th>
+      <th>Tools</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,14 +21,19 @@
         <td><%= recipe.name %></td>
         <td>
           <% recipe.drank_books.each do |drank_book| %>
-            <%= drank_book.name %>
+           - <%= drank_book.name %><br>
           <% end %>
         </td>
         <td><%= recipe.description %></td>
         <td><%= recipe.process %></td>
         <td>
           <% recipe.ingredients.each do |ingredient| %>
-            <%= ingredient.name %>
+            - <%= ingredient.name %><br>
+          <% end %>
+        </td>
+        <td>
+          <% recipe.tools.each do |tool| %>
+            - <%= tool.name %><br>
           <% end %>
         </td>
         <td><%= link_to 'Show', recipe %></td>

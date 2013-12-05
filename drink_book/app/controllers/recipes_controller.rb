@@ -17,12 +17,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @ingredients = Ingredient.all.collect { |p| [p.name, p.id] }
     @drankbooks = DrankBook.all.collect { |p| [p.name, p.id] }
+    @tools = Tool.all.collect { |p| [p.name, p.id] }
   end
 
   # GET /recipes/1/edit
   def edit
     @ingredients = Ingredient.all.collect { |p| [p.name, p.id] }
     @drankbooks = DrankBook.all.collect { |p| [p.name, p.id] }
+    @tools = Tool.all.collect { |p| [p.name, p.id] }
   end
 
   # POST /recipes
@@ -38,6 +40,11 @@ class RecipesController < ApplicationController
     params[:recipe][:drank_books].each do |drankbook_id|
       next if drankbook_id.to_i == 0
       @recipe.drank_books << DrankBook.find(drankbook_id.to_i)
+    end
+
+    params[:recipe][:tools].each do |tool_id|
+      next if tool_id.to_i == 0
+      @recipe.tools << Tool.find(tool_id.to_i)
     end
 
     respond_to do |format|
@@ -64,6 +71,11 @@ class RecipesController < ApplicationController
         params[:recipe][:drank_books].each do |drankbook_id|
           next if drankbook_id.to_i == 0
           @recipe.drank_books << DrankBook.find(drankbook_id.to_i)
+        end
+
+        params[:recipe][:tools].each do |tool_id|
+          next if tool_id.to_i == 0
+          @recipe.tools << Tool.find(tool_id.to_i)
         end
 
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -93,6 +105,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :process, :drank_books => {}, :ingredients => {})
+      params.require(:recipe).permit(:name, :description, :process, :drank_books => {}, :ingredients => {}, :tools => {})
     end
 end

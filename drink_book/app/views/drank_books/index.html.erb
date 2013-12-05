@@ -19,7 +19,7 @@
         <td><%= drank_book.description %></td>
         <td>
           <% drank_book.recipes.each do |recipe| %>
-            <%= recipe.name %>
+            - <%= recipe.name %><br>
           <% end %>
         </td>
         <td><%= link_to 'Show', drank_book %></td>

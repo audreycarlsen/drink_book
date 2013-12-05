@@ -31,7 +31,11 @@
     <%= f.label :ingredients %><br>
     <%= f.select(:ingredients, @ingredients, { selected: @recipe.ingredients.collect{ |i| i.id } }, {:multiple => true}) %>
   </div>
+  <div class="field">
+    <%= f.label :tools %><br>
+    <%= f.select(:tools, @tools, { selected: @recipe.tools.collect{ |i| i.id } }, {:multiple => true}) %>
+  </div>
   <div class="actions">
-    <%= f.submit{"Recipe"} %>
+    <%= f.submit %>
   </div>
 <% end %>
