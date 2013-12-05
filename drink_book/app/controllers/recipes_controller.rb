@@ -33,7 +33,10 @@ class RecipesController < ApplicationController
       @recipe.ingredients << Ingredient.find(ingredient_id.to_i)
     end
 
-    @recipe.drank_book = DrankBook.find(params[:recipe][:drank_book].to_i)
+    params[:recipe][:drank_books].each do |drankbook_id|
+      next if drankbook_id.to_i == 0
+      @recipe.drank_books << DrankBook.find(drankbook_id.to_i)
+    end
 
     respond_to do |format|
       if @recipe.save

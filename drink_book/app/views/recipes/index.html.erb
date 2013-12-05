@@ -18,7 +18,11 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.drank_book.name %></td>
+        <td>
+          <% recipe.drank_books.each do |drank_book| %>
+            <%= drank_book.name %>
+          <% end %>
+        </td>
         <td><%= recipe.description %></td>
         <td><%= recipe.process %></td>
         <td>

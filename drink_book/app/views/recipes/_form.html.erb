@@ -16,8 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :drankbook %><br>
-    <%= f.select(:drank_book, @drankbooks, {}, {}) %>
+    <%= f.label :drankbooks %><br>
+    <%= f.select(:drank_books, @drankbooks, {}, {:multiple => true}) %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

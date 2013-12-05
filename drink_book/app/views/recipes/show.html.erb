@@ -5,8 +5,10 @@
   <%= @recipe.name %>
 </p>
 <p>
-<strong>Drankbook:</strong>
-  <%= @recipe.drank_book.name %>
+<strong>Drankbooks:</strong><br>
+  <% @recipe.drank_books.each do |drank_book| %>
+    - <%= drank_book.name %><br>
+  <% end %>
 </p>
 <p>
   <strong>Description:</strong>
