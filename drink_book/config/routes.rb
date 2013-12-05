@@ -7,6 +7,8 @@ DrinkBook::Application.routes.draw do
   resources :tools
 
   resources :ingredients
+
+  root 'welcome#index'
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
