@@ -1,5 +1,15 @@
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search by Ingredient:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+<p>Don't commit....
+  <br>GIT YOUR DRANK ON.</p>
+
+<a href="/drank_books">Drinkbooks</a> - <a href="/recipes">Recipes</a> - <a href="/ingredients">Ingredients</a> - <a href="/tools">Tools</a>
+
+<br><br>
+
+<%= form_tag(recipes_path, method: 'get') do %>
+	<%= label_tag('Search by ingredient:') %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
 <% end %>
+
+<img src='/assets/cocktails.jpg'></img>
+

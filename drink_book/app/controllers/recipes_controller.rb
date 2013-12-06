@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    Recipe.by_ingredient_name(params[:search])
   end
 
   # GET /recipes/1
@@ -105,6 +106,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :process, :drank_books => {}, :ingredients => {}, :tools => {})
+      params.require(:recipe).permit(:name, :description, :search, :process, :drank_books => {}, :ingredients => {}, :tools => {})
     end
 end
