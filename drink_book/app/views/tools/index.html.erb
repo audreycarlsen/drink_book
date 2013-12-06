@@ -1,22 +1,14 @@
-<h1>Listing Tools</h1>
+<%= link_to 'New Tool', new_tool_path %>
+
+<h1>Tools</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @tools.each do |tool| %>
       <tr>
-        <td><%= tool.name %></td>
-        <td><%= link_to 'Show', tool %></td>
-        <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
-        <td><%= link_to 'Destroy', tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='row_title'><%= link_to tool.name, tool %></td>
+        <td>[<%= link_to 'Edit', edit_tool_path(tool) %>]  [<%= link_to 'Delete', tool, method: :delete, data: { confirm: 'Are you sure?' } %>]</td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +16,4 @@
 
 <br>
 
-<%= link_to 'New Tool', new_tool_path %>
+<%= link_to 'Create New Tool!', new_drank_book_path %>

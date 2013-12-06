@@ -1,31 +1,30 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: Futura, sans-serif;
-  font-size: 20px;
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
   line-height: 18px;
-  background: url(/assets/cocktails.jpg) no-repeat fixed left bottom;
+  margin: 0;
 }
 
 a {
-  color: #00a7ad;
-  text-decoration: none;
-  &:visited {
-    color: #00a7ad;
-  }
-  &:hover {
-    color: #e63500;
-  }
-}
-
-h1 a {
   color: #000000;
+  text-decoration: none;
   &:visited {
     color: #000000;
   }
   &:hover {
-    color: #e63500;
+    color: #00a7ad;
   }
+}
+
+.h1_title {
+  font-family: Futura, sans-serif;
+  font-size: 45px;
+}
+
+h1 {
+  font-family: Futura, sans-serif;
 }
 
 h2 {
@@ -34,13 +33,68 @@ h2 {
   font-weight: normal;
 }
 
-.container {
-  border:red solid 1px;
-  background-color:rgba(255, 255, 255, 0.5);
+.header {
+  position: fixed;
+  top: 0;
+  width: 800px;
+  padding-left: 20px;
+  height: 110px;
+  z-index: 1;
 }
 
-.menu {
-  border:red solid 1px;
+.container {
+  margin-top: 60px;
+  background-color:rgba(255, 255, 255, 0.5);
+  display: block;
+}
+
+#drinkbook_link {
+  position: fixed;
+  margin-top: 410px;
+  margin-left: 178px;
+}
+
+#ingredient_link {
+  position: fixed;
+  margin-top: 385px;
+  margin-left: 435px;
+}
+
+#recipe_link {
+  position: fixed;
+  margin-top: 245px;
+  margin-left: 285px;
+}
+
+#tool_link {
+  position: fixed;
+  margin-top: 280px;
+  margin-left: 510px;
+}
+
+img {
+  margin-top: 60px;
+  position: fixed;
+}
+.row_title {
+  font-size: 20px
+}
+
+.line_menu {
+  margin-top: 110px;
+  margin-left: 430px;
+  position: fixed;
+  width: 400px;
+}
+
+.container {
+  margin-top: 150px;
+  position: fixed;
+  margin-left: 20px;
+}
+
+td {
+  padding:10px;
 }
 
 #notice {
