@@ -1,14 +1,27 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-  <title>DrinkBook</title>
+  <title>Git Your Drank On!</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <div class="header">
+    <h2><em>Don't commit....</em></h2>
+    <h1><a href="/">GIT YOUR DRANK ON.</a></h1>
+  </div>
 
-<%= yield %>
+  <div class="menu">
+    <a href="/drank_books">Drinkbooks</a> - <a href="/recipes">Recipes</a> - <a href="/ingredients">Ingredients</a> - <a href="/tools">Tools</a>
+  </div>
 
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
+
 </html>
