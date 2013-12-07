@@ -39,7 +39,8 @@ h2 {
   width: 800px;
   padding-left: 20px;
   height: 110px;
-  z-index: 1;
+  z-index: 2;
+  background-color: white;
 }
 
 .container {
@@ -87,16 +88,20 @@ img {
 }
 
 .line_menu {
-  margin-top: 110px;
-  margin-left: 390px;
+  padding-left: 390px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  top: 110px;
   position: fixed;
-  width: 400px;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
 }
 
 .container {
   margin-top: 150px;
-  position: fixed;
   margin-left: 20px;
+  margin-bottom: 40px;
 }
 
 td {

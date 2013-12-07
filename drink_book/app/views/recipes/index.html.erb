@@ -1,43 +1,15 @@
 <h1>Recipes</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Drankbooks</th>
-      <th>Descriptions</th>
-      <th>Process</th>
-      <th>Ingredients</th>
-      <th>Tools</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= link_to recipe.name, recipe %></td>
-        <td>
-          <% recipe.drank_books.each do |drank_book| %>
-           - <%= drank_book.name %><br>
-          <% end %>
-        </td>
+        <td class='row_title'><%= link_to recipe.name, recipe %></td>
+        <td>[<%= link_to 'Edit', edit_recipe_path(recipe) %>] [<%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } %>]</td>
+      </tr>
+      <tr>
         <td><%= recipe.description %></td>
-        <td><%= recipe.process %></td>
-        <td>
-          <% recipe.ingredients.each do |ingredient| %>
-            - <%= ingredient.name %><br>
-          <% end %>
-        </td>
-        <td>
-          <% recipe.tools.each do |tool| %>
-            - <%= tool.name %><br>
-          <% end %>
-        </td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -45,4 +17,4 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to 'Create New Recipe!', new_recipe_path %>
