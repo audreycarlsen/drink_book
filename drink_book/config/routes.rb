@@ -8,6 +8,8 @@ DrinkBook::Application.routes.draw do
 
   resources :ingredients
 
+  resources :search
+
   root 'welcome#index'
 end
 
